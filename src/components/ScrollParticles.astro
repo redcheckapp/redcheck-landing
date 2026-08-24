@@ -1,0 +1,66 @@
+---
+// Un componente 100% Astro, sin depender de React.
+---
+
+<div 
+    id="particles-wrapper"
+    class="fixed inset-0 pointer-events-none transition-opacity duration-100 ease-out"
+    style="opacity: 0; z-index: 1;" 
+>
+    <!-- Contenedor donde se inyectará el canvas de partículas -->
+    <div id="tsparticles-landing" class="absolute inset-0"></div>
+</div>
+
+<script>
+    import { tsParticles } from "@tsparticles/engine";
+    import { loadSlim } from "@tsparticles/slim";
+
+    // 1. Inicialización nativa e infalible de las partículas
+    const initParticles = async () => {
+        await loadSlim(tsParticles);
+        
+        await tsParticles.load({
+            id: "tsparticles-landing",
+            options: {
+                background: { color: { value: "transparent" } },
+                fpsLimit: 120,
+                particles: {
+                    color: { value: "#9ca3af" }, 
+                    links: { color: "#9ca3af", distance: 150, enable: true, opacity: 0.5, width: 1.5 },
+                    move: { direction: "none", enable: true, outModes: { default: "bounce" }, random: false, speed: 1.0, straight: false },
+                    number: { density: { enable: true, area: 800 }, value: 80 },
+                    opacity: { value: 0.6 },
+                    shape: { type: "circle" },
+                    size: { value: { min: 1, max: 2.5 } },
+                },
+                detectRetina: true,
+            }
+        });
+        console.log("🟢 ¡Partículas cargadas con éxito en Astro!");
+    };
+
+    initParticles();
+
+    // 2. Lógica de opacidad atada al scroll (Ahora de 0 a 1)
+    const wrapper = document.getElementById("particles-wrapper");
+    
+    if (wrapper) {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            
+            if (docHeight > 0) {
+                // El porcentaje va exactamente de 0.0 (arriba) a 1.0 (abajo)
+                const scrollPercent = scrollTop / docHeight;
+                
+                // Aplicamos la opacidad directamente. Si estás arriba del todo, será 0.
+                wrapper.style.opacity = scrollPercent.toString();
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        
+        // Disparamos una vez para asegurar que arranca en 0 al cargar la página
+        setTimeout(handleScroll, 50);
+    }
+</script>

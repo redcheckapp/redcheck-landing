@@ -1,23 +1,57 @@
+---
+import '../styles/global.css';
+// AHORA SÍ: Importamos FloatingControls y eliminamos ThemeToggle
+import FloatingControls from '../components/FloatingControls.astro';
+import ScrollParticles from '../components/ScrollParticles.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="UTF-8" />
+		<meta name="description" content="RedCheck: Tu agenda, ahora con inteligencia artificial." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+		<title>{title}</title>
+		
+		<!-- SCRIPT DE INICIALIZACIÓN DE TEMA (Bloqueante para evitar parpadeos) -->
+		<script is:inline>
+			const initTheme = () => {
+				const savedTheme = localStorage.getItem('theme');
+				if (savedTheme) {
+					return savedTheme;
+				}
+				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			};
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+			const theme = initTheme();
+
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+			localStorage.setItem('theme', theme);
+		</script>
+	</head>
+	
+	<body class="bg-gray-50 dark:bg-[#0b1120] text-gray-900 dark:text-gray-100 antialiased selection:bg-[#cc2229]/30 selection:text-red-200 overflow-x-hidden transition-colors duration-300">
+        
+        <!-- Ahora cargamos el componente de Astro puro -->
+        <ScrollParticles />
+
+        <slot />
+        
+        <!-- Panel flotante con Idioma y Modo Noche -->
+        <FloatingControls />
+    </body>
+</html>
