@@ -7,3 +7,16 @@
 html {
     font-family: 'Inter', system-ui, sans-serif;
 }
+
+/* Ocultar la barra de scroll nativa del navegador */
+html {
+  /* Para Firefox */
+  scrollbar-width: none;
+  /* Para Internet Explorer y Edge antiguo */
+  -ms-overflow-style: none;
+}
+
+/* Para Chrome, Safari y Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
