@@ -1,0 +1,38 @@
+---
+---
+
+<!-- 
+  Barra fija arriba (top-0), pegada a la izquierda (left-0), 
+  con un alto muy fino (h-1), color rojo (#cc2229) y máxima prioridad (z-[100]). 
+  Le añadimos una sombra roja suave para que "brille" un poco sobre fondos oscuros.
+-->
+<div 
+    id="scroll-progress" 
+    class="fixed top-0 left-0 h-1 bg-[#cc2229] z-[100] w-0 transition-[width] duration-75 ease-out shadow-[0_0_8px_rgba(204,34,41,0.8)] pointer-events-none"
+></div>
+
+<script is:inline>
+    const progressBar = document.getElementById('scroll-progress');
+
+    if (progressBar) {
+        const updateProgress = () => {
+            // Píxeles que hemos bajado
+            const scrollTop = window.scrollY;
+            // Altura total scrolleable de la página
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            
+            if (docHeight > 0) {
+                // Calculamos el porcentaje (de 0 a 100)
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                // Se lo aplicamos a la anchura del div
+                progressBar.style.width = scrollPercent + '%';
+            }
+        };
+
+        // Escuchamos el evento de scroll
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        
+        // Ejecutamos una vez al cargar por si el usuario recarga a mitad de página
+        updateProgress();
+    }
+</script>
