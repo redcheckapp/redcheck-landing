@@ -1,5 +1,5 @@
 ---
-import { Sparkles, CalendarDays, Moon } from 'lucide-react';
+import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
 ---
 <section id="features" class="py-24 relative z-10 bg-transparent transition-colors duration-300">
     
@@ -93,20 +93,49 @@ import { Sparkles, CalendarDays, Moon } from 'lucide-react';
             
             <div class="flex-1 w-full bg-white dark:bg-[#0b1120] rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden relative aspect-[4/3]">
                 
+                <!-- Contenedor ESPAÑOL (Usando GIF dinámico en lugar de dos imágenes estáticas) -->
+                <div class="lang-es-wrapper absolute inset-0 w-full h-full">
+                    <img src="/images/f3-es.gif" alt="Transición Modo Noche" class="absolute inset-0 w-full h-full object-cover block"/>
+                </div>
+
+                <!-- Contenedor INGLÉS (Usando GIF dinámico en lugar de dos imágenes estáticas) -->
+                <div class="lang-en-wrapper absolute inset-0 w-full h-full">
+                    <img src="/images/f3-en.gif" alt="Dark Mode Transition" class="absolute inset-0 w-full h-full object-cover block"/>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- FEATURE 4: Rutinas Recurrentes             -->
+        <!-- ========================================== -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="flex-1 space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                    <Repeat size={24} />
+                </div>
+                <h3 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight" data-es="Rutinas Recurrentes" data-en="Recurring Routines">Rutinas Recurrentes</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed" data-es="Automatiza tu flujo de trabajo. Configura patrones de repetición personalizados (diarios, semanales o mensuales) y deja que RedCheck instancie tus tareas automáticamente para que no olvides nada." data-en="Automate your workflow. Set up custom repetition patterns (daily, weekly, or monthly) and let RedCheck automatically instantiate your tasks so you never forget a thing.">
+                    Automatiza tu flujo de trabajo. Configura patrones de repetición personalizados (diarios, semanales o mensuales) y deja que RedCheck instancie tus tareas automáticamente para que no olvides nada.
+                </p>
+            </div>
+            
+            <div class="flex-1 w-full bg-white dark:bg-[#0b1120] rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden relative aspect-[4/3]">
+                
                 <!-- Contenedor ESPAÑOL -->
                 <div class="lang-es-wrapper absolute inset-0 w-full h-full">
                     <!-- Claro -->
-                    <img src="/images/f3-es-light.png" alt="Experiencia Claro" class="absolute inset-0 w-full h-full object-cover block dark:hidden"/>
+                    <img src="/images/f4-es-light.png" alt="Rutinas Recurrentes Claro" class="absolute inset-0 w-full h-full object-cover block dark:hidden"/>
                     <!-- Oscuro -->
-                    <img src="/images/f3-es-dark.png" alt="Experiencia Oscuro" class="absolute inset-0 w-full h-full object-cover hidden dark:block"/>
+                    <img src="/images/f4-es-dark.png" alt="Rutinas Recurrentes Oscuro" class="absolute inset-0 w-full h-full object-cover hidden dark:block"/>
                 </div>
 
                 <!-- Contenedor INGLÉS -->
                 <div class="lang-en-wrapper absolute inset-0 w-full h-full">
                     <!-- Claro -->
-                    <img src="/images/f3-en-light.png" alt="Experience Light" class="absolute inset-0 w-full h-full object-cover block dark:hidden"/>
+                    <img src="/images/f4-en-light.png" alt="Recurring Routines Light" class="absolute inset-0 w-full h-full object-cover block dark:hidden"/>
                     <!-- Oscuro -->
-                    <img src="/images/f3-en-dark.png" alt="Experience Dark" class="absolute inset-0 w-full h-full object-cover hidden dark:block"/>
+                    <img src="/images/f4-en-dark.png" alt="Recurring Routines Dark" class="absolute inset-0 w-full h-full object-cover hidden dark:block"/>
                 </div>
 
             </div>
