@@ -50,7 +50,7 @@ The landing page was engineered to be exceptionally fast and highly interactive 
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/redcheckapp/redcheck-landing.git](https://github.com/redcheckapp/redcheck-landing.git)
+   git clone https://github.com/redcheckapp/redcheck-landing.git
    cd redcheck-landing
    ```
 2. Install the necessary dependencies:
@@ -63,3 +63,6 @@ The landing page was engineered to be exceptionally fast and highly interactive 
    ```
 4. Open `http://localhost:4321` in your web browser.
 5. To build the project for production, `run npm run build`. The optimized static files will be generated in the `dist/` directory, ready to be deployed to any static hosting provider.
+
+## Copyright and License
+© 2026 RedCheck. Developed by Francisco Javier Molina Cuenca. All rights reserved.
