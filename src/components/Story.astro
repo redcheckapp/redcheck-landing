@@ -7,11 +7,9 @@ import { Terminal, Lightbulb } from 'lucide-react';
             
             <!-- Columna de Imagen / Visual -->
             <div class="w-full md:w-5/12 relative">
-                <!-- Elementos decorativos de fondo para que la imagen resalte -->
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#cc2229]/20 to-[#00b87c]/20 blur-2xl rounded-[3rem] opacity-50 dark:opacity-30"></div>
                 
                 <div class="relative bg-white dark:bg-[#0b1120] border border-gray-200 dark:border-gray-800 rounded-3xl p-2 shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02] duration-500">
-                    <!-- TODO: Cambia este 'src' por una foto tuya real o de tu entorno de trabajo -->
                     <img 
                         src="images/paco-molina.jpg" 
                         alt="Paco Molina" 
@@ -38,22 +36,26 @@ import { Terminal, Lightbulb } from 'lucide-react';
                 </div>
 
                 <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-tight">
-                    <span data-es="De la teoría al código:" data-en="From theory to code:">De la teoría al código:</span><br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#cc2229] to-red-500" data-es="Por qué creé RedCheck" data-en="Why I built RedCheck">Por qué creé RedCheck</span>
+                    <span class="block" data-es="De la hoja en blanco" data-en="From blank pages">De la hoja en blanco</span>
+                    <span class="block" data-es="al código:" data-en="to code:">al código:</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#cc2229] to-red-500 mt-2" data-es="Por qué creé RedCheck" data-en="Why I built RedCheck">Por qué creé RedCheck</span>
                 </h2>
 
                 <div class="space-y-4 text-lg text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
                     <p data-es="Hola, soy Paco Molina." data-en="Hi, I'm Paco Molina.">
                         Hola, soy Paco Molina.
                     </p>
-                    <p data-es="Durante mis años compaginando el exigente Doble Grado en Matemáticas e Ingeniería Informática con mi vida personal, sentí que las listas de tareas tradicionales se quedaban cortas. Eran solo cementerios de intenciones que generaban más ansiedad que claridad." data-en="During my years balancing the demanding Double Degree in Mathematics and Computer Engineering with my personal life, I felt that traditional to-do lists fell short. They were just graveyards of intentions that generated more anxiety than clarity.">
-                        Durante mis años compaginando el exigente Doble Grado en Matemáticas e Ingeniería Informática con mi vida personal, sentí que las listas de tareas tradicionales se quedaban cortas. Eran solo cementerios de intenciones que generaban más ansiedad que claridad.
+                    <p data-es="Durante mi etapa como estudiante, nunca me convencieron las agendas tradicionales. Prefería organizar mis tardes en hojas en blanco, moldeando las tareas a mi manera en un ritual diario antes de sentarme a estudiar." data-en="During my student years, traditional planners never quite worked for me. I preferred organizing my afternoons on blank pages, shaping tasks my own way in a daily ritual before sitting down to study.">
+                        Durante mi etapa como estudiante, nunca me convencieron las agendas tradicionales. Prefería organizar mis tardes en hojas en blanco, moldeando las tareas a mi manera en un ritual diario antes de sentarme a estudiar.
                     </p>
-                    <p data-es="Mientras escribía código, demostraciones matemáticas y trataba de tener tiempo para mí, me di cuenta de algo: necesitaba aplicar la misma lógica algorítmica y de optimización que estudiaba a mi propio tiempo. Si los ordenadores pueden resolver sistemas complejos priorizando recursos, ¿por qué no podíamos tener un asistente que hiciera lo mismo con nuestro día a día?" data-en="While writing code, mathematical proofs, and trying to have time for myself, I realized something: I needed to apply the same algorithmic and optimization logic I was studying to my own time. If computers can solve complex systems by prioritizing resources, why couldn't we have an assistant do the same for our daily lives?">
-                        Mientras escribía código, demostraciones matemáticas y trataba de tener tiempo para mí, me di cuenta de algo: necesitaba aplicar la misma lógica algorítmica y de optimización que estudiaba a mi propio tiempo. Si los ordenadores pueden resolver sistemas complejos priorizando recursos, ¿por qué no podíamos tener un asistente que hiciera lo mismo con nuestro día a día?
+                    <p data-es="Pero había un problema, reescribir las tareas pendientes y las recurrentes, además de añadir las nuevas, me robaba media hora cada día. Al comenzar el Doble Grado en Matemáticas e Ingeniería Informática, ese tiempo se volvió oro y el proceso pasó de ser un hábito a un cuello de botella." data-en="But there was a problem: rewriting pending and recurring tasks, plus adding new ones, stole half an hour from me every day. When I started the Double Degree in Mathematics and Computer Engineering, that time became gold and the process went from being a habit to a bottleneck.">
+                        Pero había un problema, reescribir las tareas pendientes y las recurrentes, además de añadir las nuevas, me robaba media hora cada día. Al comenzar el Doble Grado en Matemáticas e Ingeniería Informática, ese tiempo se volvió oro y el proceso pasó de ser un hábito a un cuello de botella.
                     </p>
-                    <p class="text-gray-900 dark:text-gray-200 font-bold border-l-4 border-[#00b87c] pl-4 py-1" data-es="Así nació RedCheck y su motor SmartCheck AI. No es solo una agenda; es la herramienta que construí para recuperar el control de mi tiempo y empezar a ejecutar de forma inteligente. Y ahora, está lista para ayudarte a ti." data-en="That's how RedCheck and its SmartCheck AI engine were born. It's not just a planner; it's the tool I built to regain control of my time and start executing smartly. And now, it's ready to help you.">
-                        Así nació RedCheck y su motor SmartCheck AI. No es solo una agenda; es la herramienta que construí para recuperar el control de mi tiempo y empezar a ejecutar de forma inteligente. Y ahora, está lista para ayudarte a ti.
+                    <p data-es="Decidí aplicar lo que estaba aprendiendo y creé RedCheck para automatizar mi propio método. Quería eliminar la fricción de gestionar el atraso y las rutinas, permitiéndome ir directo al grano con la mente clara." data-en="I decided to apply what I was learning and built RedCheck to automate my own method. I wanted to eliminate the friction of managing backlogs and routines, letting me get straight to work with a clear mind.">
+                        Decidí aplicar lo que estaba aprendiendo y creé RedCheck para automatizar mi propio método. Quería eliminar la fricción de gestionar el atraso y las rutinas, permitiéndome ir directo al grano con la mente clara.
+                    </p>
+                    <p class="text-gray-900 dark:text-gray-200 font-bold border-l-4 border-[#00b87c] pl-4 py-1" data-es="Hoy, la base del sistema está pulida, mientras sigo abordando el reto de integrar la inteligencia artificial. No es solo un proyecto; es la herramienta que construí para dominar mi tiempo, y ahora está lista para ayudarte a ti." data-en="Today, the core system is polished, while I continue tackling the challenge of integrating artificial intelligence. It's not just a project; it's the tool I built to master my time, and now it's ready to help you.">
+                        Hoy, la base del sistema está pulida, mientras sigo abordando el reto de integrar la inteligencia artificial. No es solo un proyecto; es la herramienta que construí para dominar mi tiempo, y ahora está lista para ayudarte a ti.
                     </p>
                 </div>
             </div>
