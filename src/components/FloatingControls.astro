@@ -31,12 +31,18 @@
     </button>
 </div>
 
-<script is:inline>
+<script>
+    // Ajusta esta ruta según dónde hayas guardado el archivo cookies.js o cookies.ts
+    import { setSharedCookie } from '../utils/cookies.js';
+
     // --- LÓGICA DE TEMA (MODO NOCHE) ---
     const handleThemeToggle = () => {
         const element = document.documentElement;
         element.classList.toggle("dark");
         const isDark = element.classList.contains("dark");
+        
+        // 1. Actualizamos la cookie compartida y el backup local
+        setSharedCookie("rc_theme", isDark ? "dark" : "light");
         localStorage.setItem("theme", isDark ? "dark" : "light");
     };
 
@@ -59,11 +65,16 @@
     };
 
     const handleLangToggle = () => {
-        const currentLang = localStorage.getItem("lang") || "es";
+        // Leemos el idioma actual directamente del DOM
+        const currentLang = document.documentElement.lang || "es";
         const newLang = currentLang === "es" ? "en" : "es";
         
-        localStorage.setItem("lang", newLang);
+        // 2. Actualizamos la interfaz
         updateLanguageUI(newLang);
+        
+        // 3. Guardamos en la cookie compartida y backup local
+        setSharedCookie("rc_lang", newLang);
+        localStorage.setItem("lang", newLang);
         
         // Disparar evento por si algún componente necesita enterarse
         window.dispatchEvent(new CustomEvent('language-change', { detail: newLang }));
@@ -72,20 +83,14 @@
     document.getElementById("lang-toggle")?.addEventListener("click", handleLangToggle);
 
     // --- INICIALIZACIÓN INTELIGENTE DE IDIOMA ---
-    const initLanguage = () => {
-        let savedLang = localStorage.getItem("lang");
-        
-        // Si es la primera visita (no hay idioma guardado en localStorage)
-        if (!savedLang) {
-            const browserLang = navigator.language || navigator.userLanguage || "";
-            // Si el idioma empieza por "es" usamos español. Caso contrario, inglés.
-            savedLang = browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
-            localStorage.setItem("lang", savedLang);
-        }
-        
-        updateLanguageUI(savedLang);
+    const initLanguageUI = () => {
+        // Gracias al script que pusimos en el <head>, la etiqueta <html> 
+        // ya tiene el idioma correcto cargado desde la cookie.
+        // Solo necesitamos que la interfaz (bandera y textos) coincida con ese idioma.
+        const startingLang = document.documentElement.lang || "es";
+        updateLanguageUI(startingLang);
     };
 
     // Ejecutar al cargar
-    initLanguage();
+    initLanguageUI();
 </script>

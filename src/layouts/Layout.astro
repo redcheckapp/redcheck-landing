@@ -21,14 +21,23 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/redcheck.svg" />
         <title>{title}</title>
-        
-        <!-- SCRIPT DE INICIALIZACIÓN DE TEMA -->
+    
+        <!-- SCRIPT DE INICIALIZACIÓN DE TEMA E IDIOMA -->
         <script is:inline>
+            // Función para leer la cookie compartida antes de renderizar
+            const getCookie = (name) => {
+                const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? match[2] : null;
+            };
+
             const initTheme = () => {
+                const cookieTheme = getCookie('rc_theme');
+                if (cookieTheme) return cookieTheme;
+            
                 const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    return savedTheme;
-                }
+                if (savedTheme) return savedTheme; 
+            
+                // Prioridad 3: Preferencia del sistema operativo
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                     return 'dark';
                 }
@@ -42,7 +51,9 @@ const { title } = Astro.props;
             } else {
                 document.documentElement.classList.remove('dark');
             }
-            localStorage.setItem('theme', theme);
+
+            const savedLang = getCookie('rc_lang') || 'es';
+            document.documentElement.lang = savedLang;
         </script>
     </head>
     
