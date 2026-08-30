@@ -1,0 +1,7 @@
+{
+  "resource": "https://my.redcheckapp.com",
+  "authorization_servers": [
+    "https://my.redcheckapp.com"
+  ],
+  "scopes_supported": ["read", "write"]
+}
