@@ -11,7 +11,7 @@ This repository contains the static **Landing Page** designed to showcase the fe
 This project showcases a strong focus on web performance, SEO optimization, and frictionless user experience.
 
 <p align="center">
-  <img src="[INSERT_HERO_IMAGE_URL_HERE]" alt="RedCheck Landing Page Overview" width="800"/>
+  <img src="https://github.com/user-attachments/assets/cfa1bd1f-2d95-45b4-b655-3c514e865cc7" alt="RedCheck Landing Page Overview" width="800"/>
 </p>
 
 ## Key Features
@@ -23,13 +23,13 @@ The landing page was engineered to be exceptionally fast and highly interactive 
 - **Interactive AI Showcase:** Custom vanilla JavaScript DOM animations that visually simulate the RedCheck AI algorithm. It demonstrates the transition from user chaos to optimized order without requiring a backend connection.
 
   <p align="center">
-    <img src="[INSERT_AI_ANIMATION_GIF_URL_HERE]" alt="SmartCheck AI Interactive Demo" width="800"/>
+    <img src="https://github.com/user-attachments/assets/c69c1dfd-7b2d-4b5a-b850-63acfa93f460" alt="SmartCheck AI Interactive Demo" width="800"/>
   </p>
   
 - **Native Dark Mode:** Fully integrated Light and Dark themes supported by CSS variables and local storage, adapting flawlessly to system preferences and preventing layout shifts.
   
   <p align="center">
-    <img src="[INSERT_DARK_MODE_TRANSITION_GIF_URL_HERE]" alt="Dark Mode Transition" width="800"/>
+    <img src="https://github.com/user-attachments/assets/837792a3-63e3-474e-8825-7117e3369e44" alt="Dark Mode Transition" width="800"/>
   </p>
   
 - **Responsive Layouts:** Fluid, mobile-first design built strictly with Tailwind CSS utility classes to ensure a perfect presentation across all device sizes.
