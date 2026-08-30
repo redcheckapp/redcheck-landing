@@ -1,0 +1,5 @@
+{
+  "issuer": "https://my.redcheckapp.com",
+  "token_endpoint": "https://my.redcheckapp.com/auth/login",
+  "grant_types_supported": ["password"]
+}
