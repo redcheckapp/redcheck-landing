@@ -1,0 +1,9 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://my.redcheckapp.com",
+      "service-desc": [{"href": "https://my.redcheckapp.com/v3/api-docs", "type": "application/openapi+json"}],
+      "service-doc": [{"href": "https://my.redcheckapp.com/swagger-ui/index.html", "type": "text/html"}]
+    }
+  ]
+}
