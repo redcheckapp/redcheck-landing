@@ -1,4 +1,4 @@
-# RedCheck - Official Landing Page
+# RedCheck - Landing Page
 
 ![Astro](https://img.shields.io/badge/Astro-0C0E14?style=for-the-badge&logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
