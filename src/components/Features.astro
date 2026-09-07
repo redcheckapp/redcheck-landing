@@ -5,12 +5,12 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
     
     <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent opacity-80 dark:opacity-30 transition-opacity duration-300"></div>
 
-    <div class="max-w-6xl mx-auto px-6 space-y-32">
-        
+    <div id="features-carousel" class="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-pl-6 pb-4 features-scrollbar-hide md:block md:space-y-32 md:gap-0 md:overflow-visible md:snap-none md:scroll-pl-0 md:pb-0">
+
         <!-- ========================================== -->
         <!-- FEATURE 1: SmartCheck AI                   -->
         <!-- ========================================== -->
-        <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="w-[85%] shrink-0 snap-start md:w-auto flex flex-col md:flex-row items-center gap-12">
             <div class="flex-1 space-y-6">
                 <div class="w-12 h-12 rounded-xl bg-[#cc2229]/10 flex items-center justify-center text-[#cc2229]">
                     <Sparkles size={24} />
@@ -57,7 +57,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
         <!-- ========================================== -->
         <!-- FEATURE 2: Progreso Visual Constante       -->
         <!-- ========================================== -->
-        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+        <div class="w-[85%] shrink-0 snap-start md:w-auto flex flex-col md:flex-row-reverse items-center gap-12">
             <div class="flex-1 space-y-6">
                 <div class="w-12 h-12 rounded-xl bg-[#00b87c]/10 flex items-center justify-center text-[#00b87c]">
                     <CalendarDays size={24} />
@@ -104,7 +104,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
         <!-- ========================================== -->
         <!-- FEATURE 3: Experiencia sin fricciones      -->
         <!-- ========================================== -->
-        <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="w-[85%] shrink-0 snap-start md:w-auto flex flex-col md:flex-row items-center gap-12">
             <div class="flex-1 space-y-6">
                 <div class="w-12 h-12 rounded-xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300">
                     <Moon size={24} />
@@ -139,7 +139,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
         <!-- ========================================== -->
         <!-- FEATURE 4: Rutinas Recurrentes             -->
         <!-- ========================================== -->
-        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+        <div class="w-[85%] shrink-0 snap-start md:w-auto flex flex-col md:flex-row-reverse items-center gap-12">
             <div class="flex-1 space-y-6">
                 <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
                     <Repeat size={24} />
@@ -192,9 +192,21 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
     html[lang="es"] .lang-en-wrapper {
         display: none !important;
     }
-    
+
     /* Cuando el idioma es inglés, ocultamos el bloque de imágenes en español */
     html[lang="en"] .lang-es-wrapper {
         display: none !important;
+    }
+</style>
+
+<style>
+    /* Oculta la barra de scroll nativa del carrusel de features en móvil
+       (el swipe con el dedo sigue funcionando igual, solo se oculta el indicador visual) */
+    #features-carousel.features-scrollbar-hide {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    #features-carousel.features-scrollbar-hide::-webkit-scrollbar {
+        display: none;
     }
 </style>
