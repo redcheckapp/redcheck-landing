@@ -10,11 +10,18 @@ import { Terminal, Lightbulb } from 'lucide-react';
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#cc2229]/20 to-[#00b87c]/20 blur-2xl rounded-[3rem] opacity-50 dark:opacity-30"></div>
                 
                 <div class="relative bg-white dark:bg-[#0b1120] border border-gray-200 dark:border-gray-800 rounded-3xl p-2 shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02] duration-500">
-                    <img 
-                        src="images/paco-molina.jpg" 
-                        alt="Paco Molina" 
-                        class="w-full h-auto rounded-2xl object-cover object-top aspect-[3/4]"
-                    />
+                    <picture>
+                        <source srcset="/images/paco-molina.webp" type="image/webp"/>
+                        <img
+                            src="/images/paco-molina.jpg"
+                            alt="Paco Molina"
+                            width="899"
+                            height="1599"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-auto rounded-2xl object-cover object-top aspect-[3/4]"
+                        />
+                    </picture>
                     <!-- Etiqueta flotante tipo perfil -->
                     <div class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-lg flex items-center gap-3">
                         <div class="bg-[#cc2229] p-2 rounded-lg text-white">

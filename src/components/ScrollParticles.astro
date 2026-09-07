@@ -29,18 +29,23 @@
 
     const initParticles = async () => {
         await loadSlim(tsParticles);
-        
+
+        // En móvil reducimos el número de partículas y desactivamos los enlaces
+        // (más costosos de calcular) para no penalizar el rendimiento/batería.
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
         // 1. Cargamos las partículas UNA SOLA VEZ con la configuración base (noche)
         await tsParticles.load({
             id: "tsparticles-landing",
             options: {
                 background: { color: { value: "transparent" } },
-                fpsLimit: 120,
+                fpsLimit: isMobile ? 60 : 120,
                 particles: {
-                    color: { value: "#9ca3af" }, 
-                    links: { color: "#9ca3af", distance: 150, enable: true, opacity: 0.4, width: 1.5 },
-                    move: { direction: "none", enable: true, outModes: { default: "bounce" }, random: false, speed: 1.0, straight: false },
-                    number: { density: { enable: true, area: 800 }, value: 80 },
+                    color: { value: "#9ca3af" },
+                    links: { color: "#9ca3af", distance: 150, enable: !isMobile, opacity: 0.4, width: 1.5 },
+                    move: { direction: "none", enable: !prefersReducedMotion, outModes: { default: "bounce" }, random: false, speed: 1.0, straight: false },
+                    number: { density: { enable: true, area: 800 }, value: isMobile ? 30 : 80 },
                     opacity: { value: 0.6 },
                     shape: { type: "circle" },
                     size: { value: { min: 1, max: 2.5 } },
@@ -48,7 +53,7 @@
                 detectRetina: true,
             }
         });
-        
+
         console.log("🟢 Partículas cargadas con éxito (Instancia Única)");
     };
 

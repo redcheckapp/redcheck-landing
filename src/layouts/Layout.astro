@@ -8,32 +8,94 @@ import ScrollProgress from '../components/ScrollProgress.astro';
 
 interface Props {
     title: string;
+    description?: string;
 }
 
-const { title } = Astro.props;
+const {
+    title,
+    description = 'RedCheck: Tu agenda, ahora con inteligencia artificial.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/images/og-image.jpg', Astro.site);
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="RedCheck: Tu agenda, ahora con inteligencia artificial." />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalURL} />
         <link rel="icon" type="image/svg+xml" href="/redcheck.svg" />
         <title>{title}</title>
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="RedCheck" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:locale:alternate" content="en_US" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
 
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "RedCheck",
-            "applicationCategory": "ProductivityApplication",
-            "operatingSystem": "Web",
-            "description": "Interactive time and task management ecosystem using artificial intelligence.",
-            "url": "https://redcheckapp.com"
+            "@graph": [
+                {
+                    "@type": "SoftwareApplication",
+                    "@id": "https://redcheckapp.com/#software",
+                    "name": "RedCheck",
+                    "applicationCategory": "ProductivityApplication",
+                    "operatingSystem": "Web",
+                    "description": "Interactive time and task management ecosystem using artificial intelligence.",
+                    "url": "https://redcheckapp.com",
+                    "image": "https://redcheckapp.com/images/og-image.jpg",
+                    "creator": { "@id": "https://redcheckapp.com/#founder" },
+                    "publisher": { "@id": "https://redcheckapp.com/#organization" },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "EUR"
+                    }
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://redcheckapp.com/#organization",
+                    "name": "RedCheck",
+                    "url": "https://redcheckapp.com",
+                    "logo": "https://redcheckapp.com/redcheck.svg",
+                    "founder": { "@id": "https://redcheckapp.com/#founder" }
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://redcheckapp.com/#founder",
+                    "name": "Francisco Javier Molina Cuenca",
+                    "alternateName": "Paco Molina",
+                    "jobTitle": "Creator of RedCheck",
+                    "url": "https://redcheckapp.com/#story",
+                    "sameAs": [
+                        "https://github.com/Pacolias",
+                        "https://linkedin.com/in/francisco-javier-molina-cuenca"
+                    ]
+                }
+            ]
         }
         </script>
-    
+
         <!-- SCRIPT DE INICIALIZACIÓN DE TEMA E IDIOMA -->
         <script is:inline>
             // Función para leer la cookie compartida antes de renderizar
