@@ -1,5 +1,5 @@
 ---
-import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
+import { Sparkles, CalendarDays, Moon, Repeat, MoveHorizontal } from 'lucide-react';
 ---
 <section id="features" class="py-24 relative z-10 bg-transparent transition-colors duration-300">
     
@@ -21,7 +21,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
                 </p>
             </div>
 
-            <div class="flex-1 w-full rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
+            <div class="w-full md:flex-1 rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
                 
                 <!-- Contenedor ESPAÑOL -->
                 <div class="lang-es-wrapper w-full h-full">
@@ -68,7 +68,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
                 </p>
             </div>
 
-            <div class="flex-1 w-full rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
+            <div class="w-full md:flex-1 rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
                 
                 <!-- Contenedor ESPAÑOL -->
                 <div class="lang-es-wrapper w-full h-full">
@@ -115,7 +115,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
                 </p>
             </div>
 
-            <div class="flex-1 w-full rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
+            <div class="w-full md:flex-1 rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
                 
                 <!-- Contenedor ESPAÑOL (Usando GIF dinámico) -->
                 <div class="lang-es-wrapper w-full h-full">
@@ -150,7 +150,7 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
                 </p>
             </div>
 
-            <div class="flex-1 w-full rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
+            <div class="w-full md:flex-1 rounded-2xl overflow-hidden md:bg-white md:dark:bg-[#0b1120] md:border md:border-gray-200 md:dark:border-gray-800 md:shadow-xl">
                 
                 <!-- Contenedor ESPAÑOL -->
                 <div class="lang-es-wrapper w-full h-full">
@@ -184,6 +184,12 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
         </div>
 
     </div>
+
+    <!-- Pista de swipe (solo móvil) -->
+    <div class="flex md:hidden items-center justify-center gap-2 mt-2 text-xs font-semibold text-gray-400 dark:text-gray-500">
+        <MoveHorizontal size={14} class="features-swipe-icon" />
+        <span data-es="Desliza para ver todas las características" data-en="Swipe to see all the features">Desliza para ver todas las características</span>
+    </div>
 </section>
 
 <!-- LA MAGIA MULTI-IDIOMA EN CSS PURO -->
@@ -208,5 +214,20 @@ import { Sparkles, CalendarDays, Moon, Repeat } from 'lucide-react';
     }
     #features-carousel.features-scrollbar-hide::-webkit-scrollbar {
         display: none;
+    }
+
+    /* Pequeño balanceo horizontal en el icono de la pista de swipe */
+    @keyframes featuresSwipeNudge {
+        0%, 100% { transform: translateX(-3px); opacity: 0.6; }
+        50% { transform: translateX(3px); opacity: 1; }
+    }
+    .features-swipe-icon {
+        animation: featuresSwipeNudge 1.6s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .features-swipe-icon {
+            animation: none;
+        }
     }
 </style>

@@ -28,6 +28,17 @@ import { ListPlus, Sparkles, CheckCircle2 } from 'lucide-react';
                     <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite." data-en="Add your subjects and quickly register all your pending tasks, assignments, or exams with their deadlines.">
                         Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite.
                     </p>
+
+                    <!-- Pista de "toca aquí", superpuesta sobre la primera tarjeta (solo móvil) -->
+                    <button
+                        type="button"
+                        id="hiw-tap-hint"
+                        class="md:hidden absolute bottom-4 right-4 flex items-center justify-center w-8 h-8 transition-opacity duration-500"
+                        aria-label="Toca para ver el siguiente paso"
+                    >
+                        <span class="hiw-tap-ripple absolute inline-flex h-full w-full rounded-full bg-[#cc2229]/40"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#cc2229]"></span>
+                    </button>
                 </div>
 
                 <div data-hiw-slide="1" class="hiw-card relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border-2 border-[#cc2229]/30 dark:border-[#cc2229]/20 shadow-2xl shadow-[#cc2229]/15 dark:shadow-lg dark:shadow-[#cc2229]/10 transform md:-translate-y-4 transition-opacity duration-300 backdrop-blur-sm">
@@ -51,23 +62,11 @@ import { ListPlus, Sparkles, CheckCircle2 } from 'lucide-react';
                 </div>
             </div>
 
-            <!-- Indicador de pasos + pista de "toca para avanzar" (solo móvil) -->
-            <div class="flex md:hidden flex-col items-center gap-4 mt-6">
-                <div class="flex items-center gap-2" id="hiw-dots">
-                    <button type="button" data-hiw-dot class="h-2 w-6 rounded-full bg-[#cc2229] transition-all duration-300" aria-label="1"></button>
-                    <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="2"></button>
-                    <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="3"></button>
-                </div>
-
-                <button
-                    type="button"
-                    id="hiw-tap-hint"
-                    class="relative flex items-center justify-center w-8 h-8 transition-opacity duration-500"
-                    aria-label="Toca para ver el siguiente paso"
-                >
-                    <span class="hiw-tap-ripple absolute inline-flex h-full w-full rounded-full bg-[#cc2229]/40"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#cc2229]"></span>
-                </button>
+            <!-- Indicador de pasos (solo móvil) -->
+            <div class="flex md:hidden items-center justify-center gap-2 mt-6" id="hiw-dots">
+                <button type="button" data-hiw-dot class="h-2 w-6 rounded-full bg-[#cc2229] transition-all duration-300" aria-label="1"></button>
+                <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="2"></button>
+                <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="3"></button>
             </div>
         </div>
 
