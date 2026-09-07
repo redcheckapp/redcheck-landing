@@ -5,8 +5,8 @@ import { Terminal, Lightbulb } from 'lucide-react';
     <div class="max-w-6xl mx-auto px-6">
         <div class="flex flex-col md:flex-row gap-16 items-center">
             
-            <!-- Columna de Imagen / Visual -->
-            <div class="w-full md:w-5/12 relative">
+            <!-- Columna de Imagen / Visual: en móvil va debajo del texto, en desktop a la izquierda -->
+            <div class="order-2 md:order-1 w-full md:w-5/12 relative">
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#cc2229]/20 to-[#00b87c]/20 blur-2xl rounded-[3rem] opacity-50 dark:opacity-30"></div>
                 
                 <div class="relative bg-white dark:bg-[#0b1120] border border-gray-200 dark:border-gray-800 rounded-3xl p-2 shadow-2xl overflow-hidden transform transition-transform hover:scale-[1.02] duration-500">
@@ -36,7 +36,7 @@ import { Terminal, Lightbulb } from 'lucide-react';
             </div>
 
             <!-- Columna de Texto (Storytelling) -->
-            <div class="w-full md:w-7/12 space-y-6">
+            <div class="order-1 md:order-2 w-full md:w-7/12 space-y-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 mb-2">
                     <Lightbulb size={14} class="text-amber-500" />
                     <span class="text-xs font-semibold tracking-wide text-gray-800 dark:text-gray-300" data-es="El origen" data-en="The origin">El origen</span>
