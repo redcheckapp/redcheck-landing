@@ -1,9 +1,9 @@
 ---
-import { ListPlus, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ListPlus, Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
 ---
 <section class="py-24 bg-transparent transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-6">
-        
+
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight mb-4">
                 <span data-es="Curva de aprendizaje" data-en="Learning curve:">Curva de aprendizaje</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00b87c] to-emerald-400" data-es="cero." data-en="zero.">cero.</span>
@@ -13,39 +13,192 @@ import { ListPlus, Sparkles, CheckCircle2 } from 'lucide-react';
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="relative">
             <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-gray-200 via-[#cc2229]/50 to-gray-200 dark:from-gray-800 dark:via-[#cc2229]/50 dark:to-gray-800 z-0"></div>
 
-            <div class="relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl dark:shadow-sm transition-all duration-300 backdrop-blur-sm">
-                <div class="w-16 h-16 rounded-2xl bg-white dark:bg-[#0b1120] border-2 border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-800 dark:text-gray-200 mb-6 shadow-sm">
-                    <ListPlus size={28} />
+            <!-- En móvil (antes de que cargue el JS del carrusel): las 3 tarjetas se apilan normalmente.
+                 Con JS: solo se muestra la activa, con un tap para pasar a la siguiente. En md+: grid de 3 columnas de siempre. -->
+            <div id="hiw-track" class="grid md:grid-cols-3 gap-8 cursor-pointer md:cursor-default">
+
+                <div data-hiw-slide="0" class="hiw-card relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl dark:shadow-sm transition-opacity duration-300 backdrop-blur-sm">
+                    <div class="w-16 h-16 rounded-2xl bg-white dark:bg-[#0b1120] border-2 border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-800 dark:text-gray-200 mb-6 shadow-sm">
+                        <ListPlus size={28} />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="1. Vuelca tu mente" data-en="1. Offload your mind">1. Vuelca tu mente</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite." data-en="Add your subjects and quickly register all your pending tasks, assignments, or exams with their deadlines.">
+                        Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="1. Vuelca tu mente" data-en="1. Offload your mind">1. Vuelca tu mente</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite." data-en="Add your subjects and quickly register all your pending tasks, assignments, or exams with their deadlines.">
-                    Añade tus asignaturas y registra rápidamente todas tus tareas, prácticas o exámenes pendientes con sus fechas límite.
-                </p>
+
+                <div data-hiw-slide="1" class="hiw-card relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border-2 border-[#cc2229]/30 dark:border-[#cc2229]/20 shadow-2xl shadow-[#cc2229]/15 dark:shadow-lg dark:shadow-[#cc2229]/10 transform md:-translate-y-4 transition-opacity duration-300 backdrop-blur-sm">
+                    <div class="w-16 h-16 rounded-2xl bg-[#cc2229] border-4 border-white dark:border-[#111827] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#cc2229]/30">
+                        <Sparkles size={28} />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="2. Pulsa el botón mágico" data-en="2. Press the magic button">2. Pulsa el botón mágico</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="SmartCheck AI cruza los datos de tus tareas, detecta cuellos de botella y genera al instante tu plan de acción para hoy." data-en="SmartCheck AI crosses your task data, detects bottlenecks, and instantly generates your action plan for today.">
+                        SmartCheck AI cruza los datos de tus tareas, detecta cuellos de botella y genera al instante tu plan de acción para hoy.
+                    </p>
+                </div>
+
+                <div data-hiw-slide="2" class="hiw-card relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl dark:shadow-sm transition-opacity duration-300 backdrop-blur-sm">
+                    <div class="w-16 h-16 rounded-2xl bg-white dark:bg-[#0b1120] border-2 border-gray-100 dark:border-gray-700 flex items-center justify-center text-[#00b87c] mb-6 shadow-sm">
+                        <CheckCircle2 size={28} />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="3. Ejecuta tu plan" data-en="3. Execute your plan">3. Ejecuta tu plan</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="Céntrate únicamente en la lista priorizada que tienes delante. Marca las tareas como completadas y observa cómo crece tu progreso." data-en="Focus solely on the prioritized list in front of you. Mark tasks as completed and watch your progress grow.">
+                        Céntrate únicamente en la lista priorizada que tienes delante. Marca las tareas como completadas y observa cómo crece tu progreso.
+                    </p>
+                </div>
             </div>
 
-            <div class="relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border-2 border-[#cc2229]/30 dark:border-[#cc2229]/20 shadow-2xl shadow-[#cc2229]/15 dark:shadow-lg dark:shadow-[#cc2229]/10 transform md:-translate-y-4 transition-all duration-300 backdrop-blur-sm">
-                <div class="w-16 h-16 rounded-2xl bg-[#cc2229] border-4 border-white dark:border-[#111827] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#cc2229]/30">
-                    <Sparkles size={28} />
+            <!-- Indicador de pasos + pista de "toca para avanzar" (solo móvil) -->
+            <div class="flex md:hidden flex-col items-center gap-4 mt-6">
+                <div class="flex items-center gap-2" id="hiw-dots">
+                    <button type="button" data-hiw-dot class="h-2 w-6 rounded-full bg-[#cc2229] transition-all duration-300" aria-label="1"></button>
+                    <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="2"></button>
+                    <button type="button" data-hiw-dot class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300" aria-label="3"></button>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="2. Pulsa el botón mágico" data-en="2. Press the magic button">2. Pulsa el botón mágico</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="SmartCheck AI cruza los datos de tus tareas, detecta cuellos de botella y genera al instante tu plan de acción para hoy." data-en="SmartCheck AI crosses your task data, detects bottlenecks, and instantly generates your action plan for today.">
-                    SmartCheck AI cruza los datos de tus tareas, detecta cuellos de botella y genera al instante tu plan de acción para hoy.
-                </p>
-            </div>
 
-            <div class="relative z-10 flex flex-col items-center text-center bg-white dark:bg-[#111827]/90 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl dark:shadow-sm transition-all duration-300 backdrop-blur-sm">
-                <div class="w-16 h-16 rounded-2xl bg-white dark:bg-[#0b1120] border-2 border-gray-100 dark:border-gray-700 flex items-center justify-center text-[#00b87c] mb-6 shadow-sm">
-                    <CheckCircle2 size={28} />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-es="3. Ejecuta tu plan" data-en="3. Execute your plan">3. Ejecuta tu plan</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-es="Céntrate únicamente en la lista priorizada que tienes delante. Marca las tareas como completadas y observa cómo crece tu progreso." data-en="Focus solely on the prioritized list in front of you. Mark tasks as completed and watch your progress grow.">
-                    Céntrate únicamente en la lista priorizada que tienes delante. Marca las tareas como completadas y observa cómo crece tu progreso.
-                </p>
+                <button
+                    type="button"
+                    id="hiw-tap-hint"
+                    class="flex items-center gap-1 text-xs font-semibold text-gray-400 dark:text-gray-500 transition-opacity duration-500"
+                >
+                    <span data-es="Toca para ver el siguiente paso" data-en="Tap to see the next step">Toca para ver el siguiente paso</span>
+                    <ChevronRight size={14} class="hiw-hint-icon" />
+                </button>
             </div>
         </div>
 
     </div>
 </section>
+
+<style>
+    /* Pequeño empujón animado en el icono de la pista, invitando a tocar */
+    @keyframes hiwHintNudge {
+        0%, 100% { transform: translateX(0); opacity: 0.6; }
+        50% { transform: translateX(4px); opacity: 1; }
+    }
+    .hiw-hint-icon {
+        animation: hiwHintNudge 1.4s ease-in-out infinite;
+    }
+
+    /* Brillo muy sutil en la tarjeta activa, solo en móvil, para sugerir que es interactiva */
+    @keyframes hiwCardInvite {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(204, 34, 41, 0); }
+        50% { box-shadow: 0 0 0 6px rgba(204, 34, 41, 0.12); }
+    }
+    @media (max-width: 767px) {
+        .hiw-card.hiw-invite {
+            animation: hiwCardInvite 2.4s ease-in-out infinite;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hiw-hint-icon,
+        .hiw-card.hiw-invite {
+            animation: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    (function () {
+        const track = document.getElementById('hiw-track');
+        const cards = Array.prototype.slice.call(document.querySelectorAll('[data-hiw-slide]'));
+        const dots = Array.prototype.slice.call(document.querySelectorAll('#hiw-dots [data-hiw-dot]'));
+        const tapHint = document.getElementById('hiw-tap-hint');
+        const mq = window.matchMedia('(max-width: 767px)');
+
+        if (!track || !cards.length) return;
+
+        let index = 0;
+        let hasInteracted = false;
+
+        const stepWord = function () {
+            return document.documentElement.lang === 'en' ? 'Step' : 'Paso';
+        };
+
+        const updateDots = function () {
+            dots.forEach(function (dot, i) {
+                const active = i === index;
+                dot.className = active
+                    ? 'h-2 w-6 rounded-full bg-[#cc2229] transition-all duration-300'
+                    : 'h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300';
+                dot.setAttribute('aria-current', active ? 'true' : 'false');
+                dot.setAttribute('aria-label', stepWord() + ' ' + (i + 1));
+            });
+        };
+
+        const applyMobileState = function () {
+            cards.forEach(function (card, i) {
+                if (i === index) {
+                    card.classList.remove('hidden');
+                    card.style.opacity = '1';
+                    card.classList.toggle('hiw-invite', !hasInteracted);
+                } else {
+                    card.style.opacity = '0';
+                    card.classList.add('hidden');
+                    card.classList.remove('hiw-invite');
+                }
+            });
+        };
+
+        const resetDesktopState = function () {
+            cards.forEach(function (card) {
+                card.classList.remove('hidden', 'hiw-invite');
+                card.style.opacity = '';
+            });
+        };
+
+        const render = function () {
+            if (mq.matches) {
+                applyMobileState();
+            } else {
+                resetDesktopState();
+            }
+            updateDots();
+        };
+
+        const goToSlide = function (next) {
+            index = ((next % cards.length) + cards.length) % cards.length;
+            render();
+        };
+
+        const handleAdvance = function () {
+            if (!mq.matches) return;
+            if (!hasInteracted) {
+                hasInteracted = true;
+                if (tapHint) tapHint.style.opacity = '0';
+            }
+            goToSlide(index + 1);
+        };
+
+        track.addEventListener('click', handleAdvance);
+        if (tapHint) {
+            tapHint.addEventListener('click', function (e) {
+                e.stopPropagation();
+                handleAdvance();
+            });
+        }
+
+        dots.forEach(function (dot, i) {
+            dot.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (!hasInteracted) {
+                    hasInteracted = true;
+                    if (tapHint) tapHint.style.opacity = '0';
+                }
+                goToSlide(i);
+            });
+        });
+
+        mq.addEventListener('change', function () {
+            goToSlide(0);
+        });
+
+        window.addEventListener('language-change', updateDots);
+
+        render();
+    })();
+</script>

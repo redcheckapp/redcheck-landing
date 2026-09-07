@@ -6,6 +6,13 @@
 
 html {
     font-family: 'Inter', system-ui, sans-serif;
+    /* Evita el scroll/rebote horizontal en móvil cuando algún elemento
+       decorativo (blur, glow) sobresale del viewport. overflow-x-hidden
+       en <body> no es suficiente por sí solo en algunos navegadores móviles:
+       el viewport visual puede seguir "respirando" hacia los lados y arrastrar
+       consigo los elementos con position: fixed (p. ej. la navbar). */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Ocultar la barra de scroll nativa del navegador */
